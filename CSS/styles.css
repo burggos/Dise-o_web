@@ -1,0 +1,402 @@
+/* =========================================================
+   🎨 ESTILOS GENERALES
+========================================================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0078d7, #00b4d8);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   🔹 NAVBAR GLOBAL
+========================================================= */
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #005fa3;
+  padding: 15px 40px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 🔹 Menú */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar ul li a:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+/* 🍔 Botón hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.hamburger span {
+  background: white;
+  height: 3px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: #005fa3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transform: translateX(100%);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar ul.active {
+    transform: translateX(0);
+  }
+
+  /* 🔸 Animación de la hamburguesa */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
+
+/* =========================================================
+   🔸 LOGIN Y CONTENEDORES PRINCIPALES
+========================================================= */
+.login-container, .home-container {
+  background: white;
+  color: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 300px;
+  margin: auto;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #0078d7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #005fa3;
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   🧮 CALCULADORA
+========================================================= */
+.contenido-principal {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculadora {
+  background: #ffffff;
+  color: #111;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 260px;
+}
+
+.calculadora h2 {
+  margin-bottom: 15px;
+  color: #004e92;
+}
+
+#pantalla {
+  width: 240px;
+  height: 45px;
+  font-size: 1.3rem;
+  text-align: right;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.botones button {
+  background-color: #0078d7;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botones button:hover {
+  background-color: #005fa3;
+}
+
+#borrar {
+  grid-column: span 4;
+  background-color: #e63946;
+}
+
+#borrar:hover {
+  background-color: #c1121f;
+}
+
+/* =========================================================
+   🧭 MENÚ PRINCIPAL Y TARJETAS
+========================================================= */
+.menu-principal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  flex: 1;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.8s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   🎥 VIDEOS
+========================================================= */
+.videos-contenedor {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.videos-contenedor h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.videos-contenedor .descripcion {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  color: #f1f1f1;
+  line-height: 1.5;
+}
+
+.galeria-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.video-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: aparecer 0.6s ease forwards;
+}
+
+.video-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  border: none;
+}
+
+.video-card h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* =========================================================
+   🖼️ GALERÍA DE IMÁGENES
+========================================================= */
+.galeria-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+  animation: fadeIn 1s ease-in;
+}
+
+.galeria-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.galeria-container p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.imagen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.imagen img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.imagen:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* =========================================================
+   ✨ ANIMACIONES
+========================================================= */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   📱 RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .videos-contenedor h2 {
+    font-size: 1.6rem;
+  }
+
+  .menu-principal {
+    grid-template-columns: 1fr;
+  }
+}

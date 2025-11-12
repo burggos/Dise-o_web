@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🌐 Mi Sitio Web</div>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú de enlaces -->
+<ul id="nav-menu">
+  <li><a href="menu.html">Inicio</a></li>
+  <li><a href="calculadora.html">Calculadora</a></li>
+  <li><a href="videos.html">Videos</a></li>
+  <li><a href="inicio.html">Cerrar sesión</a></li>
+</ul>
+
+</nav>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="galeria-container">
+    <h1>📸 Galería de Imágenes</h1>
+    <p>Explora una colección de imágenes seleccionadas, con animaciones suaves y un diseño moderno. Pasa el cursor sobre cada imagen para ver el efecto.</p>
+
+    <div class="grid-galeria">
+      <div class="imagen"><img src="https://picsum.photos/id/1015/400/250" alt="Imagen 1"></div>
+      <div class="imagen"><img src="https://picsum.photos/id/1016/400/250" alt="Imagen 2"></div>
+      <div class="imagen"><img src="https://picsum.photos/id/1018/400/250" alt="Imagen 3"></div>
+      <div class="imagen"><img src="https://picsum.photos/id/1020/400/250" alt="Imagen 4"></div>
+      <div class="imagen"><img src="https://picsum.photos/id/1024/400/250" alt="Imagen 5"></div>
+      <div class="imagen"><img src="https://picsum.photos/id/1031/400/250" alt="Imagen 6"></div>
+    </div>
+  </section>
+</body>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Cierra el menú al hacer clic en un enlace (opcional)
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+</script>
+
+
+</html>
