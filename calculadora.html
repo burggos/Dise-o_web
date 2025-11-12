@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <script src="/scrips/calculadora.js" defer></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🌐 Mi Sitio Web</div>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú de enlaces -->
+<ul id="nav-menu">
+  <li><a href="menu.html">Inicio</a></li>
+  <li><a href="videos.html">Videos</a></li>
+  <li><a href="galeria.html">Galería</a></li>
+  <li><a href="index.html">Cerrar sesión</a></li>
+</ul>
+</nav>
+
+  <!-- 🔸 Contenido principal -->
+  <main class="contenido-principal">
+    <section class="calculadora">
+      <input type="text" id="pantalla" readonly>
+      <div class="botones">
+        <button onclick="limpiar()">C</button>
+        <button onclick="borrar()">⌫</button>
+        <button onclick="agregar('/')">÷</button>
+        <button onclick="agregar('*')">×</button>
+
+        <button onclick="agregar('7')">7</button>
+        <button onclick="agregar('8')">8</button>
+        <button onclick="agregar('9')">9</button>
+        <button onclick="agregar('-')">−</button>
+
+        <button onclick="agregar('4')">4</button>
+        <button onclick="agregar('5')">5</button>
+        <button onclick="agregar('6')">6</button>
+        <button onclick="agregar('+')">+</button>
+
+        <button onclick="agregar('1')">1</button>
+        <button onclick="agregar('2')">2</button>
+        <button onclick="agregar('3')">3</button>
+        <button rowspan="2" onclick="calcular()">=</button>
+
+        <button colspan="2" onclick="agregar('0')">0</button>
+        <button onclick="agregar('.')">.</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("cerrarSesion").addEventListener("click", () => {
+      if (confirm("¿Seguro que quieres cerrar sesión?")) {
+        window.location.href = "inicio.html";
+      }
+    });
+  </script>
+
+  
+</body>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Cierra el menú al hacer clic en un enlace (opcional)
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+</script>
+
+
+
+</html>

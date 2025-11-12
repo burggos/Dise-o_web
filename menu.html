@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Principal</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🌐 Mi Sitio Web</div>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú de enlaces -->
+<ul id="nav-menu">
+  <li><a href="menu.html">Inicio</a></li>
+  <li><a href="calculadora.html">Calculadora</a></li>
+  <li><a href="galeria.html">Galería</a></li>
+  <li><a href="index.html">Cerrar sesión</a></li>
+</ul>
+
+</nav>
+
+
+  <!-- 🔸 Contenido principal -->
+  <main class="menu-principal">
+
+    <section class="card perfil">
+      <h2>MI NOMBRE ES GABRIEL</h2>
+        <p class="descripcion-perfil">
+            Bienvenido a mi sitio web personal. Aquí encontrarás una variedad de herramientas y recursos que he desarrollado para ayudarte en tus proyectos.
+            Explora las diferentes secciones para descubrir lo que tengo para ofrecer.
+    </section>
+
+    <section class="card amarillo">
+        <h2>Calculadora</h2>
+            <p class="descripcion-calculadora">
+                Esta calculadora te permite realizar operaciones básicas como suma, resta, multiplicación y división.
+                Su diseño es sencillo y fácil de usar: solo ingresa los números, selecciona la operación y obtén el resultado al instante.
+        </p>
+        <div class="botones-cv">
+            <button class="btn-calculadora" onclick="window.location.href='calculadora.html'">🧮 Ir a la Calculadora</button>
+        </div>
+    </section>
+
+
+
+    <section class="card rosa">
+        <h2>VIDEOS DE APRENDIZAJE</h2>
+        <p class="descripcion-proyecto">
+            En esta sección encontrarás una colección de videos seleccionados para mejorar tus habilidades
+            en desarrollo web, programación y diseño. Cada video está organizado para que puedas aprender
+            a tu propio ritmo y fortalecer tus conocimientos con ejemplos prácticos.
+        </p>
+        <div class="botones-proyecto">
+            <button class="btn-videos" onclick="window.location.href='videos.html'">🎥 Ver Videos</button>
+        </div>
+    </section>
+
+
+
+    <section class="card azul">
+        <h2>GALERÍA</h2>
+        <p class="descripcion-galeria">
+            En esta sección encontrarás una colección de imágenes con un diseño atractivo y efectos visuales suaves. 
+            La galería muestra ejemplos y recursos que complementan el estilo del proyecto.
+        </p>
+        <div class="botones-proyecto">
+            <button class="btn-galeria" onclick="window.location.href='galeria.html'">🖼️ Ver Galería</button>
+        </div>
+    </section>
+
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Cierra el menú al hacer clic en un enlace (opcional)
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+</script>
+
+</html>
